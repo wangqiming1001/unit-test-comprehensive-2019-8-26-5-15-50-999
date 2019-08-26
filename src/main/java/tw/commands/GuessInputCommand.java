@@ -15,8 +15,8 @@ import java.util.Random;
 public class GuessInputCommand {
 
     private BufferedReader bufferedReader;
-    private static List<Integer> list = new ArrayList<Integer>();
-    private static List<String> answer = new ArrayList<String>();
+    
+    
     
 
     public GuessInputCommand() {
@@ -31,6 +31,7 @@ public class GuessInputCommand {
     //生成4个随机数放入list
     public static List<Integer> random() {
     	//生成答案 如：1234
+    	List<Integer> list = new ArrayList<Integer>();
         for(int i=0;i<4;i++){
             int random = new Random().nextInt(10);
             list.add(random);
@@ -41,17 +42,17 @@ public class GuessInputCommand {
     //输入的字符串变为数组
     public static List<String> answer() throws IOException {
     	 String input = new GuessInputCommand().input();
-    	 List<String> answer = Arrays.asList(input.split(""));
+    	 List<String> answer = new ArrayList<String>();
+    	 answer = Arrays.asList(input.split(""));
     	 return answer;
 	}
     
     //02 统计相同数字(包括位置)
-    public static String sameNumber() {
+    public static String sameNumber(List<String> answer,List<Integer> list) {
     	int countA = 0;
     	int countB = 0;
     	for (int i = 0; i < answer.size(); i++) {
     		for (int j = 0; j < list.size(); j++) {
-    			System.out.println(Integer.parseInt(answer.get(i)));
     			if (Integer.parseInt(answer.get(i)) == list.get(j)) {
     				countB++;
     				if (i == j) {
@@ -59,7 +60,6 @@ public class GuessInputCommand {
 					}
     			}
     		}
-		
     	}
     	String buffer = countA+"A"+countB+"B";
     	return buffer;
