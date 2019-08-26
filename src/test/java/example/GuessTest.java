@@ -14,7 +14,7 @@ public class GuessTest {
 
 	
 	 @Test
-	    public void should_produce_random_number() {
+	    public void should_return_4A4B_when_input_4A4B() {
 	    	//given
 		 	List<Integer> list = new ArrayList<Integer>() ;
 			 	list.add(1);
