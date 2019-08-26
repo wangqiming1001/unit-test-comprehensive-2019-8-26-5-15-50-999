@@ -14,12 +14,10 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
     	
-    	List<Integer> list = GuessInputCommand.random();
-    	System.out.println(list);
+    	GuessInputCommand.random();
         for (int i = 0; i < RUN_TIMES; i++) {
         	GuessInputCommand.answer();
-        	String answer = GuessInputCommand.sameNumber();
-        	System.out.println(answer);
+        	GuessInputCommand.sameNumber();
         }
         System.out.println("游戏结束");
     }
